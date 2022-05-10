@@ -482,12 +482,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 20e76ab5c4289f240b52438dbb95e083, type: 2}
-        m_TargetAssemblyTypeName: DialogueChannel, Assembly-CSharp
+        m_TargetAssemblyTypeName: FluffyGameDev.Dialogue.DialogueChannel, Assembly-CSharp
         m_MethodName: RaiseRequestDialogue
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: bd7293c9ddb438d40a5a94baaa2b74e3, type: 2}
-          m_ObjectArgumentAssemblyTypeName: Dialogue, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: FluffyGameDev.Dialogue.Dialogue, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1319,12 +1319,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 20e76ab5c4289f240b52438dbb95e083, type: 2}
-        m_TargetAssemblyTypeName: DialogueChannel, Assembly-CSharp
+        m_TargetAssemblyTypeName: FluffyGameDev.Dialogue.DialogueChannel, Assembly-CSharp
         m_MethodName: RaiseRequestDialogue
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: c266af96f268bed46b18c23032877791, type: 2}
-          m_ObjectArgumentAssemblyTypeName: Dialogue, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: FluffyGameDev.Dialogue.Dialogue, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1735,7 +1735,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 968130527}
-  m_LocalRotation: {x: 0.062324416, y: 0.000000017306572, z: -0.000000001080723, w: 0.998056}
+  m_LocalRotation: {x: 0.062324416, y: -0.000000017306572, z: 0.000000001080723, w: 0.998056}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2639,12 +2639,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 20e76ab5c4289f240b52438dbb95e083, type: 2}
-        m_TargetAssemblyTypeName: DialogueChannel, Assembly-CSharp
+        m_TargetAssemblyTypeName: FluffyGameDev.Dialogue.DialogueChannel, Assembly-CSharp
         m_MethodName: RaiseRequestDialogue
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: c266af96f268bed46b18c23032877791, type: 2}
-          m_ObjectArgumentAssemblyTypeName: Dialogue, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: FluffyGameDev.Dialogue.Dialogue, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2910,7 +2910,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2044042766}
-  m_LocalRotation: {x: 0.098537624, y: 0.0000000042806607, z: -4.238689e-10, w: 0.99513334}
+  m_LocalRotation: {x: 0.09853762, y: -0.000000004280661, z: 4.238689e-10, w: 0.99513334}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2970,12 +2970,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 20e76ab5c4289f240b52438dbb95e083, type: 2}
-        m_TargetAssemblyTypeName: DialogueChannel, Assembly-CSharp
+        m_TargetAssemblyTypeName: FluffyGameDev.Dialogue.DialogueChannel, Assembly-CSharp
         m_MethodName: RaiseRequestDialogue
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: bd7293c9ddb438d40a5a94baaa2b74e3, type: 2}
-          m_ObjectArgumentAssemblyTypeName: Dialogue, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: FluffyGameDev.Dialogue.Dialogue, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using FluffyGameDev.Dialogue;
 
 public class DialogueInstigator : MonoBehaviour
 {

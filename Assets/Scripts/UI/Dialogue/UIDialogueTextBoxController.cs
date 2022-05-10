@@ -1,3 +1,5 @@
+using FluffyGameDev.Dialogue;
+using FluffyGameDev.Dialogue.Nodes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -47,8 +49,8 @@ public class UIDialogueTextBoxController : MonoBehaviour, DialogueNodeVisitor
     {
         gameObject.SetActive(true);
 
-        m_DialogueText.text = node.DialogueLine.Text;
-        m_SpeakerText.text = node.DialogueLine.Speaker.CharacterName;
+        m_DialogueText.text = node.Text;
+        m_SpeakerText.text = node.Speaker.CharacterName;
 
         node.Accept(this);
     }

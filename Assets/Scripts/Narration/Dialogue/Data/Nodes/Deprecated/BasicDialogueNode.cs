@@ -1,18 +1,19 @@
 using System;
 using UnityEngine;
 
-namespace FluffyGameDev.Dialogue.Nodes
+namespace FluffyGameDev.Dialogue.Deprecated
 {
-    [Serializable]
+    [Obsolete("Use FluffyGameDev.Dialogue.Nodes.BasicDialogueNode instead.")]
     public class BasicDialogueNode : DialogueNode
     {
-        [SerializeReference]
-        public DialogueNode NextNode;
+        [SerializeField]
+        private DialogueNode m_NextNode;
+        public DialogueNode NextNode => m_NextNode;
 
 
         public override bool CanBeFollowedByNode(DialogueNode node)
         {
-            return NextNode == node;
+            return m_NextNode == node;
         }
 
         public override void Accept(DialogueNodeVisitor visitor)

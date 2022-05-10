@@ -1,4 +1,6 @@
+using FluffyGameDev.Dialogue;
 using TMPro;
+using FluffyGameDev.Dialogue.Nodes;
 using UnityEngine;
 using UnityEngine.UI;
 

@@ -1,12 +1,15 @@
+using System;
 using UnityEngine;
 
-public abstract class DialogueNode : ScriptableObject
+namespace FluffyGameDev.Dialogue.Nodes
 {
-    [SerializeField]
-    private NarrationLine m_DialogueLine;
+    [Serializable]
+    public abstract class DialogueNode
+    {
+        public NarrationCharacter Speaker;
+        public string Text;
 
-    public NarrationLine DialogueLine => m_DialogueLine;
-
-    public abstract bool CanBeFollowedByNode(DialogueNode node);
-    public abstract void Accept(DialogueNodeVisitor visitor);
+        public abstract bool CanBeFollowedByNode(DialogueNode node);
+        public abstract void Accept(DialogueNodeVisitor visitor);
+    }
 }

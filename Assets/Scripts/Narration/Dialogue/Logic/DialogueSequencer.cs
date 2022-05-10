@@ -1,91 +1,94 @@
 
-public class DialogueException : System.Exception
+namespace FluffyGameDev.Dialogue
 {
-    public DialogueException(string message)
-        : base(message)
+    public class DialogueException : System.Exception
     {
-    }
-}
-
-public class DialogueSequencer
-{
-    public delegate void DialogueCallback(Dialogue dialogue);
-    public delegate void DialogueNodeCallback(DialogueNode node);
-
-    public DialogueCallback OnDialogueStart;
-    public DialogueCallback OnDialogueEnd;
-    public DialogueNodeCallback OnDialogueNodeStart;
-    public DialogueNodeCallback OnDialogueNodeEnd;
-
-    private Dialogue m_CurrentDialogue;
-    private DialogueNode m_CurrentNode;
-
-    public void StartDialogue(Dialogue dialogue)
-    {
-        if (m_CurrentDialogue == null)
+        public DialogueException(string message)
+            : base(message)
         {
-            m_CurrentDialogue = dialogue;
-            OnDialogueStart?.Invoke(m_CurrentDialogue);
-            StartDialogueNode(dialogue.FirstNode);
-        }
-        else
-        {
-            throw new DialogueException("Can't start a dialogue when another is already running.");
         }
     }
 
-    public void EndDialogue(Dialogue dialogue)
+    public class DialogueSequencer
     {
-        if (m_CurrentDialogue == dialogue)
+        public delegate void DialogueCallback(Dialogue dialogue);
+        public delegate void DialogueNodeCallback(Nodes.DialogueNode node);
+
+        public DialogueCallback OnDialogueStart;
+        public DialogueCallback OnDialogueEnd;
+        public DialogueNodeCallback OnDialogueNodeStart;
+        public DialogueNodeCallback OnDialogueNodeEnd;
+
+        private Dialogue m_CurrentDialogue;
+        private Nodes.DialogueNode m_CurrentNode;
+
+        public void StartDialogue(Dialogue dialogue)
         {
-            StopDialogueNode(m_CurrentNode);
-            OnDialogueEnd?.Invoke(m_CurrentDialogue);
-            m_CurrentDialogue = null;
-        }
-        else
-        {
-            throw new DialogueException("Trying to stop a dialogue that ins't running.");
-        }
-    }
-
-    private bool CanStartNode(DialogueNode node)
-    {
-        return (m_CurrentNode == null || node == null || m_CurrentNode.CanBeFollowedByNode(node));
-    }
-
-    public void StartDialogueNode(DialogueNode node)
-    {
-        if (CanStartNode(node))
-        {
-            StopDialogueNode(m_CurrentNode);
-
-            m_CurrentNode = node;
-
-            if (m_CurrentNode != null)
+            if (m_CurrentDialogue == null)
             {
-                OnDialogueNodeStart?.Invoke(m_CurrentNode);
+                m_CurrentDialogue = dialogue;
+                OnDialogueStart?.Invoke(m_CurrentDialogue);
+                StartDialogueNode(dialogue.m_StartNode);
             }
             else
             {
-                EndDialogue(m_CurrentDialogue);
+                throw new DialogueException("Can't start a dialogue when another is already running.");
             }
         }
-        else
-        {
-            throw new DialogueException("Failed to start dialogue node.");
-        }
-    }
 
-    private void StopDialogueNode(DialogueNode node)
-    {
-        if (m_CurrentNode == node)
+        public void EndDialogue(Dialogue dialogue)
         {
-            OnDialogueNodeEnd?.Invoke(m_CurrentNode);
-            m_CurrentNode = null;
+            if (m_CurrentDialogue == dialogue)
+            {
+                StopDialogueNode(m_CurrentNode);
+                OnDialogueEnd?.Invoke(m_CurrentDialogue);
+                m_CurrentDialogue = null;
+            }
+            else
+            {
+                throw new DialogueException("Trying to stop a dialogue that ins't running.");
+            }
         }
-        else
+
+        private bool CanStartNode(Nodes.DialogueNode node)
         {
-            throw new DialogueException("Trying to stop a dialogue node that ins't running.");
+            return (m_CurrentNode == null || node == null || m_CurrentNode.CanBeFollowedByNode(node));
+        }
+
+        public void StartDialogueNode(Nodes.DialogueNode node)
+        {
+            if (CanStartNode(node))
+            {
+                StopDialogueNode(m_CurrentNode);
+
+                m_CurrentNode = node;
+
+                if (m_CurrentNode != null)
+                {
+                    OnDialogueNodeStart?.Invoke(m_CurrentNode);
+                }
+                else
+                {
+                    EndDialogue(m_CurrentDialogue);
+                }
+            }
+            else
+            {
+                throw new DialogueException("Failed to start dialogue node.");
+            }
+        }
+
+        private void StopDialogueNode(Nodes.DialogueNode node)
+        {
+            if (m_CurrentNode == node)
+            {
+                OnDialogueNodeEnd?.Invoke(m_CurrentNode);
+                m_CurrentNode = null;
+            }
+            else
+            {
+                throw new DialogueException("Trying to stop a dialogue node that ins't running.");
+            }
         }
     }
 }
